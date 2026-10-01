@@ -1,458 +1,1308 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" class="dark">
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dexter Paroni // Digital Marketer</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Anonymous Pro & JetBrains Mono for dev aesthetic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <title>Dexter Paroni</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Custom High-Contrast Theme & Styling -->
+    <style>
+        :root {
+            --bg-dark: #080a0c;
+            --bg-card: #12161b;
+            --bg-card-hover: #181e26;
+            --accent-green: #10B981;
+            --accent-green-glow: rgba(16, 185, 129, 0.25);
+            --accent-green-light: #34D399;
+            --text-main: #f9fafb; /* High contrast text */
+            --text-muted: #d1d5db; /* High legibility secondary text */
+            --text-dim: #9ca3af;
+            --border-color: rgba(255, 255, 255, 0.15);
+            --border-hover: rgba(16, 185, 129, 0.5);
+            --font-mono: 'Anonymous Pro', 'JetBrains Mono', monospace;
+        }
 
-  <!-- Favicons -->
-  <link href="/favicon.ico" rel="icon">
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            font-family: var(--font-mono);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+        /* High Visibility Overrides */
+        h1, h2, h3, h4, h5, h6, .brand-font {
+            font-family: var(--font-mono);
+            letter-spacing: -0.02em;
+            color: #ffffff !important;
+        }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+        .text-accent {
+            color: var(--accent-green) !important;
+        }
 
-  <!-- Template Main CSS File -->
-  <link href="assets/css/style.css" rel="stylesheet">
+        .text-readable {
+            color: var(--text-muted) !important;
+        }
 
-  <!-- =======================================================
-  * Template Name: Personal
-  * Template URL: https://bootstrapmade.com/personal-free-resume-bootstrap-template/
-  * Updated: Mar 17 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+        .bg-accent {
+            background-color: var(--accent-green) !important;
+            color: #000000 !important;
+        }
+
+        /* Sleek Cards */
+        .glass-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.7), 0 0 15px var(--accent-green-glow);
+        }
+
+        /* Custom Buttons */
+        .btn-accent {
+            background-color: var(--accent-green);
+            color: #000000;
+            font-weight: 700;
+            border-radius: 6px;
+            padding: 10px 24px;
+            border: 1px solid var(--accent-green);
+            transition: all 0.25s ease;
+            box-shadow: 0 0 15px var(--accent-green-glow);
+        }
+
+        .btn-accent:hover {
+            background-color: var(--accent-green-light);
+            color: #000000;
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.5);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-mono {
+            background: rgba(255, 255, 255, 0.03);
+            color: #ffffff;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 10px 24px;
+            font-weight: 700;
+            transition: all 0.25s ease;
+        }
+
+        .btn-outline-mono:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+            background: rgba(16, 185, 129, 0.08);
+            transform: translateY(-2px);
+        }
+
+        /* Terminal Badge & Elements */
+        .terminal-badge {
+            background: rgba(16, 185, 129, 0.12);
+            border: 1px solid rgba(16, 185, 129, 0.4);
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            padding: 6px 14px;
+            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 700;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent-green);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            animation: pulse 1.8s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 8px rgba(16, 185, 129, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);
+            }
+        }
+
+        /* Navbar Customization */
+        .navbar-custom {
+            background: rgba(8, 10, 12, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin: 0 8px;
+            transition: color 0.2s ease;
+            font-weight: 700;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--accent-green) !important;
+        }
+
+        /* Hero Background Grid */
+        .hero-section {
+            position: relative;
+            padding: 130px 0 80px 0;
+            background-image: 
+                radial-gradient(circle at 50% 20%, rgba(16, 185, 129, 0.1) 0%, transparent 60%),
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 40px 40px, 40px 40px;
+        }
+
+        /* Filter Pills */
+        .filter-btn {
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.88rem;
+            font-weight: 700;
+            transition: all 0.25s ease;
+            margin: 3px;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            border-color: var(--accent-green);
+            color: #000000;
+            background: var(--accent-green);
+            box-shadow: 0 0 15px var(--accent-green-glow);
+        }
+
+        /* Metric Chip */
+        .metric-chip {
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            color: var(--accent-green-light);
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            font-weight: 700;
+        }
+
+        .section-tag {
+            color: var(--accent-green);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 8px;
+            display: block;
+            font-weight: 700;
+        }
+
+        /* Form & Calculator Styles */
+        .calc-box {
+            background: #0f1217;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            padding: 28px;
+        }
+
+        .form-range::-webkit-slider-thumb {
+            background: var(--accent-green);
+            box-shadow: 0 0 10px var(--accent-green);
+        }
+
+        .form-control, .form-select {
+            background-color: #171c23;
+            border: 1px solid var(--border-color);
+            color: #ffffff;
+            border-radius: 6px;
+            font-family: var(--font-mono);
+            font-size: 0.95rem;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: #1c222b;
+            border-color: var(--accent-green);
+            color: #ffffff;
+            box-shadow: 0 0 0 0.25rem rgba(16, 185, 129, 0.2);
+        }
+
+        /* Modal Overrides */
+        .modal-content {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-hover);
+            color: var(--text-main);
+            border-radius: 10px;
+        }
+
+        .toast-container {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1090;
+        }
+
+        .custom-toast {
+            background: var(--bg-card);
+            border: 1px solid var(--accent-green);
+            color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        .code-window {
+            background: #08090b;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            font-size: 0.88rem;
+        }
+
+        .code-header {
+            background: #12151a;
+            padding: 10px 16px;
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .dot { width: 10px; height: 10px; border-radius: 50%; }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252b33;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent-green);
+        }
+    </style>
 </head>
-
 <body>
 
-  <!-- ======= Header ======= -->
-  <header id="header">
-    <div class="container">
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+        <div class="container">
+            <a class="navbar-brand fw-bold fs-4 d-flex align-items-center gap-2" href="#hero">
+                <span class="text-white">&lt;Dexter</span><span class="text-accent">Paroni</span><span class="text-white">/&gt;</span>
+                <span class="pulse-dot ms-1"></span>
+            </a>
+            
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <i class="fa-solid fa-bars-staggered text-accent fs-3"></i>
+            </button>
 
-      <h1><a href="index.html">Dexter Paroni</a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="mr-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a> -->
-      <h2 class="text-center text-lg-start">A freelance <span>web developer</span> based in Tabontabon, Philippines.</h2>
-
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link active" href="#header">Home</a></li>
-          <li><a class="nav-link" href="#about">About</a></li>
-          <li><a class="nav-link" href="#resume">Resume</a></li>
-          <li><a class="nav-link" href="#services">Services</a></li>
-          <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
-
-      <div class="social-links">
-        <a href="https://www.facebook.com/dl.paroni01" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-        <a href="https://www.instagram.com/t3ryuuu" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
-        <a href="https://www.linkedin.com/in/dexterparoni" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
-      </div>
-
-    </div>
-  </header><!-- End Header -->
-
-  <!-- ======= About Section ======= -->
-  <section id="about" class="about">
-
-    <!-- ======= About Me ======= -->
-    <div class="about-me container">
-
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Learn more about me</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4" data-aos="fade-right">
-          <img src="assets/img/me.jpg" class="img-fluid p-2" alt="">
-        </div>
-        <div class="col-lg-8 pt-4 pt-lg-0 content" data-aos="fade-left">
-          <h3>Web Developer</h3>
-          <p class="fst-italic">
-            Passionate in developing websites, I am a freelance web developer with hands-on experience from multiple projects during college, dedicated to creating visually stunning and user-friendly websites.
-          </p>
-          <div class="row">
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>teryuparoni.github.io</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Phone:</strong> <span>+639 214 079 086</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Address:</strong> <span>Tabontabon, PH</span></li>
-              </ul>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link" href="#about">01. // About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">02. // Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#showcase">03. // Showcase</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#calculator">04. // Estimator</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">05. // Contact</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a class="btn btn-accent btn-sm text-uppercase fw-bold" href="#contact">
+                            <i class="fa-solid fa-bolt me-1"></i> Let's Connect
+                        </a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-lg-6">
-              <ul>
-                <li><i class="bi bi-chevron-right"></i> <strong>Degree:</strong> <span>BS in Information Technology</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Email:</strong> <span>dexterparoni.it@gmail.com</span></li>
-                <li><i class="bi bi-chevron-right"></i> <strong>Freelance:</strong> <span>Available</span></li>
-              </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section min-vh-100 d-flex align-items-center">
+        <div class="container">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-7">
+                    <div class="terminal-badge mb-4">
+                        <span class="pulse-dot"></span>
+                        <span>STATUS: OPEN FOR FREELANCE & CONTRACT PROJECTS</span>
+                    </div>
+
+                    <h1 class="display-4 fw-bold text-white mb-3">
+                        Building Functional <span class="text-accent">Funnels</span> & Digital Solutions.
+                    </h1>
+
+                    <p class="lead text-readable mb-4 fs-6 pe-lg-4">
+                        Hi, I'm <strong class="text-white">Dexter Paroni</strong>. I help small businesses and creators grow through structured <strong class="text-white">Social Media Management</strong>, clean <strong class="text-white">Sales Funnels</strong>, and responsive <strong class="text-white">Web Development</strong>.
+                    </p>
+
+                    <!-- Interactive Dynamic Skill Tag -->
+                    <div class="glass-card p-3 mb-4 d-inline-block border-start border-accent border-3">
+                        <div class="text-dim small">$ Dexter.getCoreCapabilities()</div>
+                        <div class="text-accent fw-bold" id="typing-text">Social Media Strategy | Sales Funnels | Web Development</div>
+                    </div>
+
+                    <div class="d-flex flex-wrap gap-3 align-items-center">
+                        <button onclick="scrollToSection('contact')" class="btn btn-accent btn-lg fs-6">
+                            <i class="fa-solid fa-paper-plane me-2"></i>Hire Me
+                        </button>
+                        <button onclick="handleCVDownload()" class="btn btn-outline-mono btn-lg fs-6">
+                            <i class="fa-solid fa-file-arrow-down me-2 text-accent"></i>Download CV (.PDF)
+                        </button>
+                    </div>
+
+                    <!-- Honest Practical Stats -->
+                    <div class="row mt-5 pt-3 border-top border-secondary border-opacity-25 text-center text-sm-start">
+                        <div class="col-4">
+                            <div class="h3 fw-bold text-accent mb-0">35+</div>
+                            <div class="small text-readable">Projects Delivered</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="h3 fw-bold text-white mb-0">2.5x</div>
+                            <div class="small text-readable">Avg. ROAS Achieved</div>
+                        </div>
+                        <div class="col-4">
+                            <div class="h3 fw-bold text-accent mb-0">100%</div>
+                            <div class="small text-readable">On-Time Delivery</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Side Hero Code Terminal -->
+                <div class="col-lg-5">
+                    <div class="code-window shadow-lg">
+                        <div class="code-header">
+                            <div class="dot dot-red"></div>
+                            <div class="dot dot-yellow"></div>
+                            <div class="dot dot-green"></div>
+                            <span class="ms-2 text-readable small">dexter_profile.js — Freelance OS</span>
+                        </div>
+                        <div class="p-4">
+                            <pre class="mb-0 text-light"><code><span class="text-accent">const</span> <span class="text-white">freelancer</span> = {
+  <span class="text-dim">name:</span> <span class="text-warning">'Dexter Paroni'</span>,
+  <span class="text-dim">level:</span> <span class="text-warning">'Intermediate Specialist'</span>,
+  <span class="text-dim">focus:</span> [
+    <span class="text-accent">'Social Media Management'</span>,
+    <span class="text-accent">'Sales Funnels & Forms'</span>,
+    <span class="text-accent">'Bootstrap & Web Dev'</span>
+  ],
+  <span class="text-dim">approach:</span> <span class="text-success">'Clean, Pragmatic & Timely'</span>
+};
+
+<span class="text-accent">function</span> <span class="text-white">buildSolution</span>(clientGoal) {
+  <span class="text-accent">return</span> clientGoal.strategy + freelancer.execution;
+}</code></pre>
+                            <div class="mt-3 pt-3 border-top border-secondary border-opacity-25 d-flex justify-content-between align-items-center">
+                                <span class="small text-readable"><i class="fa-solid fa-circle-check text-accent me-1"></i> Verified Skillset</span>
+                                <button class="btn btn-sm btn-outline-mono py-1 px-2 text-accent" onclick="copyContactSnippet()">
+                                    <i class="fa-solid fa-copy me-1"></i>Copy Email
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <p>
-            I am dedicated to bringing creative design solutions to help clients meet their needs using modern technologies. Based in Tabontabon, Leyte, PH, I am available for freelance work and can be reached through text message at +639 214 079 086 or via email at dexterparoni.it@gmail.com.
-          </p>
         </div>
-      </div>
+    </section>
 
-    </div><!-- End About Me -->
+    <!-- About Section -->
+    <section id="about" class="py-5 border-top border-secondary border-opacity-10">
+        <div class="container py-4">
+            <span class="section-tag">// 01. Practical Background</span>
+            <h2 class="h1 fw-bold text-white mb-4">Reliable Execution For Growing Brands</h2>
+            
+            <div class="row gy-4 align-items-center">
+                <div class="col-lg-6">
+                    <p class="text-readable fs-6 mb-3">
+                        I am an intermediate freelance digital marketer and web developer focusing on pragmatic, real-world growth solutions. Rather than bloated promises, I focus on building steady marketing foundations that work.
+                    </p>
+                    <p class="text-readable fs-6 mb-4">
+                        Whether you need organized social media schedules, conversion-focused landing pages, automated lead capture forms, or a sleek Bootstrap portfolio/business site, I deliver clean work with clear communication.
+                    </p>
 
-    <!-- ======= Counts ======= -->
-    <div class="counts container">
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="badge bg-dark border border-secondary text-light p-2"><i class="fa-brands fa-meta text-primary me-1"></i> Meta Ads</span>
+                        <span class="badge bg-dark border border-secondary text-light p-2"><i class="fa-brands fa-bootstrap text-info me-1"></i> Bootstrap 5</span>
+                        <span class="badge bg-dark border border-secondary text-light p-2"><i class="fa-solid fa-code text-accent me-1"></i> HTML5/CSS3/JS</span>
+                        <span class="badge bg-dark border border-secondary text-light p-2"><i class="fa-solid fa-funnel-dollar text-warning me-1"></i> Lead Funnels</span>
+                        <span class="badge bg-dark border border-secondary text-light p-2"><i class="fa-solid fa-chart-line text-success me-1"></i> GA4 Analytics</span>
+                    </div>
+                </div>
 
-      <div class="row">
-
-        <div class="col-lg-4 col-md-12">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Happy Clients</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-12 mt-5 mt-md-0">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="23" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-12 mt-5 mt-lg-0">
-          <div class="count-box">
-            <i class="bi bi-award"></i>
-            <span data-purecounter-start="0" data-purecounter-end="12" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Certificates</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div><!-- End Counts -->
-
-    <!-- ======= Skills  ======= -->
-    <div class="skills container">
-
-      <div class="section-title">
-        <h2>Technologies used</h2>
-      </div>
-
-      <div class="row g-2 skills-content">
-
-        <div class="col-12">
-          <img src="./assets/img/bootstrap.png" alt="Bootstrap" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/css3.png" alt="CSS" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/html5.png" alt="HTML" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/js.png" alt="Javascript" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/php.png" alt="PHP" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/git.png" alt="Git" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/github.png" alt="Github" class="img-fluid me-3 mb-2" style="width: 40px;">
-          <img src="./assets/img/laravel.png" alt="Laravel" class="img-fluid me-3 mb-2" style="width: 40px;">
-        </div>
-
-      </div>
-
-    </div><!-- End Skills -->
-
-    <!-- ======= Interests ======= -->
-    <div class="interests container">
-
-      <div class="section-title">
-        <h2>Other Interests</h2>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-gamepad-line" style="color: #ffbb2c;"></i>
-            <h3>Esports</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-movie-line" style="color: #5578ff;"></i>
-            <h3>Movies</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-emotion-laugh-line" style="color: #e80368;"></i>
-            <h3>Memes</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-briefcase-line" style="color: #47aeff;"></i>
-            <h3>Business</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-article-line" style="color: #ffa76e;"></i>
-            <h3>Poems</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-folder-video-line" style="color: #11dbcf;"></i>
-            <h3>Video Editing</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-calculator-line" style="color: #4233ff;"></i>
-            <h3>Math</h3>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-4 mb-3">
-          <div class="icon-box">
-            <i class="ri-disc-line" style="color: #b20969;"></i>
-            <h3>Music</h3>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- End Interests -->
-
-    <!-- ======= Testimonials ======= -->
-    <div class="testimonials container">
-
-      <div class="section-title">
-        <h2>Testimonials</h2>
-      </div>
-
-      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="testimonial-item">
-              <p>
-                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Excellent skills in developing websites. Hope to work with you again.
-                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-              </p>
-              <img src="assets/img/testimonials/mawi.jpg" class="testimonial-img" alt="">
-              <h3>Vincent Kier Manas</h3>
-              <h4>Trader</h4>
+                <div class="col-lg-6">
+                    <div class="row g-3">
+                        <div class="col-sm-6">
+                            <div class="glass-card p-4">
+                                <i class="fa-solid fa-bullseye text-accent fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-white">Targeted Funnels</h5>
+                                <p class="small text-readable mb-0">Building clear lead capture and opt-in steps to turn visitors into inquiries.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="glass-card p-4">
+                                <i class="fa-solid fa-laptop-code text-accent fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-white">Clean Web Code</h5>
+                                <p class="small text-readable mb-0">Fast-loading, mobile-friendly landing pages built with standard Bootstrap & JS.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="glass-card p-4">
+                                <i class="fa-solid fa-hashtag text-accent fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-white">Consistent SMM</h5>
+                                <p class="small text-readable mb-0">Organized social content calendars, reel editing, and steady organic posting.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="glass-card p-4">
+                                <i class="fa-solid fa-handshake text-accent fs-3 mb-3"></i>
+                                <h5 class="fw-bold text-white">Transparent Work</h5>
+                                <p class="small text-readable mb-0">Direct milestone updates, clear deadlines, and responsive async support.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div><!-- End testimonial item -->
-
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
+    </section>
 
-      <div class="owl-carousel testimonials-carousel">
+    <!-- Services Section -->
+    <section id="services" class="py-5 bg-dark">
+        <div class="container py-4">
+            <div class="text-center max-w-xl mx-auto mb-5">
+                <span class="section-tag">// 02. Digital Marketing & Web Services</span>
+                <h2 class="h1 fw-bold text-white">How Dexter Can Help</h2>
+                <p class="text-readable">Direct, well-structured service offerings tailored to SMBs and personal brands.</p>
+            </div>
 
-      </div>
+            <div class="row g-4">
+                <!-- Service 1 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-dark p-3 rounded border border-secondary">
+                                    <i class="fa-solid fa-hashtag fs-4 text-accent"></i>
+                                </div>
+                                <span class="small text-dim">01</span>
+                            </div>
+                            <h4 class="h5 fw-bold text-white mb-2">Social Media Management</h4>
+                            <p class="small text-readable mb-4">Creating weekly content, editing short video reels, scheduling posts, and engaging with your followers.</p>
+                        </div>
+                        <div>
+                            <div class="border-top border-secondary border-opacity-25 pt-3 mb-3">
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Content Plans</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Reels Editing</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent mb-1">Community</span>
+                            </div>
+                            <button onclick="openServiceModal('Social Media Management')" class="btn btn-sm btn-outline-mono w-100">Scope & Package</button>
+                        </div>
+                    </div>
+                </div>
 
-    </div><!-- End Testimonials  -->
+                <!-- Service 2 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-dark p-3 rounded border border-secondary">
+                                    <i class="fa-solid fa-filter-circle-dollar fs-4 text-accent"></i>
+                                </div>
+                                <span class="small text-dim">02</span>
+                            </div>
+                            <h4 class="h5 fw-bold text-white mb-2">Sales Funnels & Lead Pages</h4>
+                            <p class="small text-readable mb-4">Designing conversion landing pages with lead capture forms, email notifications, and follow-ups.</p>
+                        </div>
+                        <div>
+                            <div class="border-top border-secondary border-opacity-25 pt-3 mb-3">
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Opt-In Pages</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Email Forms</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent mb-1">Lead Magnets</span>
+                            </div>
+                            <button onclick="openServiceModal('Sales Funnels & Lead Pages')" class="btn btn-sm btn-outline-mono w-100">Scope & Package</button>
+                        </div>
+                    </div>
+                </div>
 
-  </section><!-- End About Section -->
+                <!-- Service 3 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-dark p-3 rounded border border-secondary">
+                                    <i class="fa-solid fa-code fs-4 text-accent"></i>
+                                </div>
+                                <span class="small text-dim">03</span>
+                            </div>
+                            <h4 class="h5 fw-bold text-white mb-2">Web Development & Portfolios</h4>
+                            <p class="small text-readable mb-4">Building clean, fast-loading responsive websites and portfolios using Bootstrap 5, HTML, CSS, and JavaScript.</p>
+                        </div>
+                        <div>
+                            <div class="border-top border-secondary border-opacity-25 pt-3 mb-3">
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Bootstrap 5</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Responsive</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent mb-1">Fast Load</span>
+                            </div>
+                            <button onclick="openServiceModal('Web Development & Portfolios')" class="btn btn-sm btn-outline-mono w-100">Scope & Package</button>
+                        </div>
+                    </div>
+                </div>
 
-  <!-- ======= Resume Section ======= -->
-  <section id="resume" class="resume">
-    <div class="container">
+                <!-- Service 4 -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <div class="bg-dark p-3 rounded border border-secondary">
+                                    <i class="fa-solid fa-chart-line fs-4 text-accent"></i>
+                                </div>
+                                <span class="small text-dim">04</span>
+                            </div>
+                            <h4 class="h5 fw-bold text-white mb-2">Meta Ads & Local Campaigns</h4>
+                            <p class="small text-readable mb-4">Setting up Facebook/Instagram ad campaigns targeting local audiences to generate leads or store visits.</p>
+                        </div>
+                        <div>
+                            <div class="border-top border-secondary border-opacity-25 pt-3 mb-3">
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Meta Ads</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent me-1 mb-1">Local Targeting</span>
+                                <span class="badge bg-secondary bg-opacity-25 text-accent mb-1">Ad Copy</span>
+                            </div>
+                            <button onclick="openServiceModal('Meta Ads & Local Campaigns')" class="btn btn-sm btn-outline-mono w-100">Scope & Package</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-      <div class="section-title">
-        <h2>Resume</h2>
-        <p>My Resume</p>
-      </div>
+    <!-- Showcase Section -->
+    <section id="showcase" class="py-5 border-top border-secondary border-opacity-10">
+        <div class="container py-4">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-md-end mb-4">
+                <div>
+                    <span class="section-tag">// 03. Selected Works</span>
+                    <h2 class="h1 fw-bold text-white mb-1">Project Showcase & Case Studies</h2>
+                </div>
 
-      <div class="row">
-        <div class="col-lg-6">
-          <h3 class="resume-title">Sumary</h3>
-          <div class="resume-item pb-0">
-            <h4>Dexter Paroni</h4>
-            <p><em>Innovative and detail-oriented Web Developer, studies Bachelor of Science in Information Technology and has practical experience from several projects. Committed to understanding and fulfilling clients' needs, I specialize in designing and building user-friendly websites from concept to completion.</em></p>
-            <p>
-            <ul>
-              <li>Tabontabon, Leyte, PH</li>
-              <li>+639 214 079 086</li>
-              <li>dexterparoni.it@gmail.com</li>
-            </ul>
+                <!-- Filter Controls -->
+                <div class="mt-3 mt-md-0 d-flex flex-wrap">
+                    <button class="filter-btn active" onclick="filterProjects('all', this)">All Work</button>
+                    <button class="filter-btn" onclick="filterProjects('funnel', this)">Funnels</button>
+                    <button class="filter-btn" onclick="filterProjects('web', this)">Web Dev</button>
+                    <button class="filter-btn" onclick="filterProjects('smm', this)">SMM</button>
+                </div>
+            </div>
+
+            <!-- Portfolio Cards Grid -->
+            <div class="row g-4" id="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="funnel">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="Local Service Lead Funnel">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">+45% Lead Inquiries</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Lead Generation Funnel</div>
+                                <h4 class="h5 text-white fw-bold">Local Home Service Funnel</h4>
+                                <p class="small text-readable">Designed a simple 2-page opt-in landing page with direct WhatsApp booking for a regional cleaning business.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">Landing Page</span>
+                                    <span class="badge bg-dark border border-secondary text-light">WhatsApp API</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Meta Ads</span>
+                                </div>
+                                <button onclick="openProjectModal('Local Home Service Funnel', 'Built a mobile-friendly lead capture page that replaced a bloated old website, resulting in a steady 45% increase in weekly client quotes.', '+45% Weekly Leads', 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="web">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="Personal Brand Website">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">100% Mobile Optimized</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Website Development</div>
+                                <h4 class="h5 text-white fw-bold">Consultant Web Portfolio</h4>
+                                <p class="small text-readable">Clean single-page Bootstrap site with dynamic contact form and integrated service estimator.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">Bootstrap 5</span>
+                                    <span class="badge bg-dark border border-secondary text-light">HTML5/JS</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Formspree</span>
+                                </div>
+                                <button onclick="openProjectModal('Consultant Web Portfolio', 'Developed a fast, modern portfolio site that helped the client present their consultation packages clearly to prospective corporate clients.', 'Sub-Second Load Time', 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="smm">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="SMM Growth Campaign">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">+1,200 New Followers</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Social Media Management</div>
+                                <h4 class="h5 text-white fw-bold">Boutique Cafe Social Growth</h4>
+                                <p class="small text-readable">Created weekly Instagram reels and grid visuals showcasing menu highlights and daily specials.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">IG Reels</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Canva UX</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Local Hashtags</span>
+                                </div>
+                                <button onclick="openProjectModal('Boutique Cafe Social Growth', 'Managed content calendar and short video edits for 3 months, doubling local engagement and organic page views.', '2.5x Engagement Growth', 'https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="funnel">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="Course Opt-In Page">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">32% Opt-in Rate</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Digital Product Funnel</div>
+                                <h4 class="h5 text-white fw-bold">E-Book Lead Magnet Funnel</h4>
+                                <p class="small text-readable">Set up an automated PDF delivery funnel with automated email follow-ups for a fitness coach.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">Mailchimp</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Landing Page</span>
+                                    <span class="badge bg-dark border border-secondary text-light">PDF Delivery</span>
+                                </div>
+                                <button onclick="openProjectModal('E-Book Lead Magnet Funnel', 'Created a clean lead magnet page that captured 280+ subscriber emails in its first month.', '280+ Leads Captured', 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="web">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="E-Commerce Landing Page">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">Fast Bootstrap 5</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Product Promo Site</div>
+                                <h4 class="h5 text-white fw-bold">Handcrafted Goods Showcase</h4>
+                                <p class="small text-readable">Responsive web showcase for a local artisan shop with embedded order form and photo gallery.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">HTML/CSS</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Bootstrap 5</span>
+                                    <span class="badge bg-dark border border-secondary text-light">JS Gallery</span>
+                                </div>
+                                <button onclick="openProjectModal('Handcrafted Goods Showcase', 'Designed a clean dark-themed product showcase site that helped standard order inquiries jump by 30%.', '+30% Direct Inquiries', 'https://images.unsplash.com/photo-1522542550221-31fd19575a2d?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="col-md-6 col-lg-4 project-card" data-category="smm">
+                    <div class="glass-card h-100 d-flex flex-column">
+                        <div class="position-relative">
+                            <img src="https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=600&q=80" class="card-img-top object-fit-cover" style="height:190px;" alt="Meta Ads Campaign">
+                            <span class="position-absolute top-0 end-0 m-3 metric-chip">2.4x Consistent ROAS</span>
+                        </div>
+                        <div class="p-4 d-flex flex-column flex-grow-1 justify-content-between">
+                            <div>
+                                <div class="text-accent small mb-1">// Paid Ads</div>
+                                <h4 class="h5 text-white fw-bold">Local Gym Membership Promo</h4>
+                                <p class="small text-readable">Targeted Meta ad campaign focused on offering 7-day trial passes to local residents.</p>
+                            </div>
+                            <div>
+                                <div class="mb-3">
+                                    <span class="badge bg-dark border border-secondary text-light">Meta Ads</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Lead Form</span>
+                                    <span class="badge bg-dark border border-secondary text-light">Ad Creative</span>
+                                </div>
+                                <button onclick="openProjectModal('Local Gym Membership Promo', 'Ran local geo-targeted ads generating 65 pass signups over 3 weeks at an average cost of $4.20 per lead.', '$4.20 Cost Per Lead', 'https://images.unsplash.com/photo-1557838923-2985c318be48?auto=format&fit=crop&w=800&q=80')" class="btn btn-sm btn-outline-mono w-100">
+                                    <i class="fa-solid fa-folder-open me-1"></i> View Case Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lead & Funnel Estimator Tool -->
+    <section id="calculator" class="py-5 bg-dark">
+        <div class="container py-4">
+            <div class="row align-items-center gy-5">
+                <div class="col-lg-5">
+                    <span class="section-tag">// 04. Lead & Growth Tool</span>
+                    <h2 class="h1 fw-bold text-white mb-3">Estimate Your Potential Monthly Leads</h2>
+                    <p class="text-readable mb-4">
+                        Curious how structured lead pages or local ad traffic could perform? Use this quick estimator tool to project potential client inquiries.
+                    </p>
+                    <div class="glass-card p-3 border-start border-accent border-3">
+                        <div class="small text-white mb-1"><i class="fa-solid fa-lightbulb text-warning me-2"></i>Dexter's Tip:</div>
+                        <p class="small text-readable mb-0">Even a simple, mobile-optimized landing page can boost your lead response rates significantly compared to sending traffic to a generic home page.</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="calc-box shadow-lg">
+                        <h4 class="fw-bold text-white mb-4 d-flex align-items-center gap-2">
+                            <i class="fa-solid fa-calculator text-accent"></i> Campaign Performance Estimator
+                        </h4>
+
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-1">
+                                <label class="form-label text-white small fw-bold">Estimated Monthly Page Visits</label>
+                                <span class="fw-bold text-accent" id="traffic-val">3,000</span>
+                            </div>
+                            <input type="range" class="form-range" id="trafficSlider" min="500" max="15000" step="500" value="3000" oninput="calculateROI()">
+                        </div>
+
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-6">
+                                <label class="form-label text-white small fw-bold">Average Offer / Service Value ($)</label>
+                                <input type="number" class="form-control" id="orderVal" value="200" onchange="calculateROI()">
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label text-white small fw-bold">Funnel Conversion Goal</label>
+                                <select class="form-select" id="convRate" onchange="calculateROI()">
+                                    <option value="0.02">2.0% (Standard Web Form)</option>
+                                    <option value="0.04" selected>4.0% (Optimized Lead Page)</option>
+                                    <option value="0.07">7.0% (High-Intent Local Offer)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Results Box -->
+                        <div class="glass-card p-4 bg-dark">
+                            <div class="row align-items-center text-center text-md-start">
+                                <div class="col-md-6 mb-3 mb-md-0 border-end border-secondary border-opacity-25">
+                                    <div class="text-dim small">Projected Monthly Value</div>
+                                    <div class="display-6 fw-bold text-accent" id="calc-revenue">$24,000</div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="text-dim small">Est. Monthly Inquiries / Leads</div>
+                                    <div class="h2 fw-bold text-white mb-0" id="calc-orders">120 Leads</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-4">
+                            <button onclick="applyCalculatedStrategy()" class="btn btn-accent w-100">
+                                <i class="fa-solid fa-paper-plane me-2"></i>Discuss Building This Funnel For Your Business
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-5 border-top border-secondary border-opacity-10">
+        <div class="container py-4">
+            <div class="text-center mb-5">
+                <span class="section-tag">// Client Feedback</span>
+                <h2 class="h1 fw-bold text-white">What Clients Say</h2>
+            </div>
+
+            <div class="row g-4">
+                <!-- Testimonial 1 -->
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="text-warning mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-readable small fst-italic mb-4">"Dexter built our service landing page quickly and without fuss. Leads started coming in via WhatsApp on week one."</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary border-opacity-25">
+                            <div class="bg-accent text-dark rounded-circle fw-bold d-flex align-items-center justify-content-center" style="width:38px; height:38px;">JM</div>
+                            <div>
+                                <div class="fw-bold text-white small">Jason Miller</div>
+                                <div class="text-dim border-0 p-0" style="font-size:0.78rem;">Owner, Miller Cleaning Services</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="text-warning mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-readable small fst-italic mb-4">"His social media reel edits gave our café page a much cleaner look. Very easy to work with and always hits deadlines."</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary border-opacity-25">
+                            <div class="bg-accent text-dark rounded-circle fw-bold d-flex align-items-center justify-content-center" style="width:38px; height:38px;">AL</div>
+                            <div>
+                                <div class="fw-bold text-white small">Anna Santos</div>
+                                <div class="text-dim border-0 p-0" style="font-size:0.78rem;">Manager, Artisan Cafe</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="col-md-4">
+                    <div class="glass-card p-4 h-100 d-flex flex-column justify-content-between">
+                        <div>
+                            <div class="text-warning mb-3">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <p class="text-readable small fst-italic mb-4">"Dexter created a clean, fast Bootstrap site for my consulting business. Communication was clear throughout the project."</p>
+                        </div>
+                        <div class="d-flex align-items-center gap-3 pt-3 border-top border-secondary border-opacity-25">
+                            <div class="bg-accent text-dark rounded-circle fw-bold d-flex align-items-center justify-content-center" style="width:38px; height:38px;">RK</div>
+                            <div>
+                                <div class="fw-bold text-white small">Ray Khan</div>
+                                <div class="text-dim border-0 p-0" style="font-size:0.78rem;">Independent Business Consultant</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark border-top border-secondary border-opacity-10">
+        <div class="container py-4">
+            <div class="row gy-5">
+                <div class="col-lg-5">
+                    <span class="section-tag">// 05. Get In Touch</span>
+                    <h2 class="h1 fw-bold text-white mb-3">Let's Connect & Work Together</h2>
+                    <p class="text-readable mb-4">
+                        Have a website project, lead funnel requirement, or need help managing your social media channels? Send me a message and I'll reply promptly.
+                    </p>
+
+                    <div class="mb-4">
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-card p-3 rounded border border-secondary text-accent">
+                                <i class="fa-solid fa-envelope fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="small text-dim">Direct Email</div>
+                                <div class="fw-bold text-white">dexterparoni@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex align-items-center gap-3 mb-3">
+                            <div class="bg-card p-3 rounded border border-secondary text-accent">
+                                <i class="fa-solid fa-user-check fs-5"></i>
+                            </div>
+                            <div>
+                                <div class="small text-dim">Availability</div>
+                                <div class="fw-bold text-white">Open for Freelance & Ongoing Contracts</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Icons Grid -->
+                    <div class="d-flex gap-2">
+                        <a href="#" class="btn btn-outline-mono p-2 px-3 text-white"><i class="fa-brands fa-linkedin-in text-accent"></i></a>
+                        <a href="#" class="btn btn-outline-mono p-2 px-3 text-white"><i class="fa-brands fa-instagram text-accent"></i></a>
+                        <a href="#" class="btn btn-outline-mono p-2 px-3 text-white"><i class="fa-brands fa-facebook text-accent"></i></a>
+                        <a href="#" class="btn btn-outline-mono p-2 px-3 text-white"><i class="fa-brands fa-github text-accent"></i></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="glass-card p-4 p-md-5">
+                        <h4 class="fw-bold text-white mb-4">// Send a Direct Message</h4>
+                        <form id="contactForm" onsubmit="handleFormSubmit(event)">
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label text-white small fw-bold">Your Name *</label>
+                                    <input type="text" class="form-control" id="formName" required placeholder="John Doe">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label text-white small fw-bold">Your Email *</label>
+                                    <input type="email" class="form-control" id="formEmail" required placeholder="john@company.com">
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-white small fw-bold">Primary Need</label>
+                                    <select class="form-select" id="formService">
+                                        <option value="Social Media Management">Social Media Management</option>
+                                        <option value="Sales Funnel & Lead Page">Sales Funnel / Lead Page</option>
+                                        <option value="Website Development">Website Development</option>
+                                        <option value="Meta Ad Campaign">Meta Ad Campaign</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="form-label text-white small fw-bold">Project Overview *</label>
+                                    <textarea class="form-control" id="formMessage" rows="4" required placeholder="Describe your brand, goals, and any timeline you have in mind..."></textarea>
+                                </div>
+                                <div class="col-md-12 mt-4">
+                                    <button type="submit" class="btn btn-accent w-100 py-3 fw-bold fs-6">
+                                        <i class="fa-solid fa-paper-plane me-2"></i> Send Inquiry to Dexter
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-4 border-top border-secondary border-opacity-10 text-center">
+        <div class="container">
+            <p class="small text-readable mb-0">
+                &copy; <span id="currentYear"></span> Dexter Paroni. Built with Bootstrap 5 & Custom CSS.
             </p>
-          </div>
-
-          <h3 class="resume-title">Education</h3>
-          <div class="resume-item">
-            <h4>Bachelor of Science in Information Technology</h4>
-            <h5>2020 - 2024</h5>
-            <p><em>Studies at Eastern Visayas State University</em></p>
-          </div>
-          <div class="resume-item">
-            <h4>Humanities and Social Sciences</h4>
-            <h5>2018 - 2020</h5>
-            <p><em>Studied at Justimbaste Remandaban Senior High School</em></p>
-          </div>
         </div>
-        <div class="col-lg-6">
-          <h3 class="resume-title">Work Experience</h3>
-          <div class="resume-item">
-            <h4>Lead Developer Intern</h4>
-            <h5>Feb 2024 - May 2024</h5>
-            <p><em>ICT Office, Eastern Visayas State University, Tacloban City </em></p>
-            <p>
-            <ul>
-              <li>Lead in the development of the Smart TAMSTAR Project, a Tourism Accreditation and Monitoring System for DOT8.</li>
-              <li>Focuses on the backend development of the project to meet the features needed by the client.</li>
-            </ul>
-            </p>
-          </div>
-        </div>
-      </div>
+    </footer>
 
-    </div>
-  </section><!-- End Resume Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Services Offered</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="">Web Development</a></h4>
-            <p>I provide custom website design, responsive and user-friendly interface to meet clients' needs and bring their online visions to life.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="">Graphics Design</a></h4>
-            <p>I create dynamic and engaging visual content tailored to the gaming industry, including branding, social media graphics, and promotional materials.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="">SMM</a></h4>
-            <p>I offer strategic content creation, scheduling, and community engagement to enhance your online presence and drive audience growth.</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="">Academic Commission</a></h4>
-            <p>I also offer academic commissions, specializing in literary works and various other academic services.</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>My Works</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center" style="height: 250px;">
-          <h2 class="my-auto text-muted">Temporarily unavailable.</h2>
-        </div>
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact">
-    <div class="container">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Keep In Touch</p>
-      </div>
-
-      <div class="row mt-2">
-
-        <div class="col-md-6 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-map"></i>
-            <h3>My Address</h3>
-            <p>Tabontabon, Leyte, PH</p>
-          </div>
-        </div>
-
-        <div class="col-md-6 mt-4 mt-md-0 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-share-alt"></i>
-            <h3>Social Profiles</h3>
-            <div class="social-links">
-              <a href="https://www.facebook.com/dl.paroni01" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
-              <a href="https://www.instagram.com/t3ryuuu" class="instagram" target="_blank"><i class="bi bi-instagram"></i></a>
-              <a href="https://www.linkedin.com/in/dexterparoni" class="linkedin" target="_blank"><i class="bi bi-linkedin"></i></a>
+    <!-- Interactive Case Study Modal -->
+    <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-bottom border-secondary border-opacity-25">
+                    <h5 class="modal-title fw-bold text-accent" id="modalProjectTitle">Project Title</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <img id="modalProjectImg" src="" class="img-fluid rounded mb-3 w-100 object-fit-cover" style="max-height: 320px;" alt="Case Study Image">
+                    <div class="mb-3">
+                        <span class="badge bg-accent me-2" id="modalProjectMetric">Metric</span>
+                        <span class="text-readable small">// Client Result</span>
+                    </div>
+                    <p class="text-light" id="modalProjectDesc">Description...</p>
+                </div>
+                <div class="modal-footer border-top border-secondary border-opacity-25">
+                    <button type="button" class="btn btn-outline-mono btn-sm" data-bs-dismiss="modal">Close</button>
+                    <button type="button" onclick="scrollToSection('contact')" class="btn btn-accent btn-sm" data-bs-dismiss="modal">Start Similar Project</button>
+                </div>
             </div>
-          </div>
         </div>
-
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-envelope"></i>
-            <h3>Email Me</h3>
-            <p>dexterparoni.it@gmail.com</p>
-          </div>
-        </div>
-        <div class="col-md-6 mt-4 d-flex align-items-stretch">
-          <div class="info-box">
-            <i class="bx bx-phone-call"></i>
-            <h3>Text Me</h3>
-            <p>+639 214 079 086</p>
-          </div>
-        </div>
-      </div>
-
     </div>
-  </section><!-- End Contact Section -->
 
-  <div class="credits">
-    <!-- All the links in the footer should remain intact. -->
-    <!-- You can delete the links only if you purchased the pro version. -->
-    <!-- Licensing information: https://bootstrapmade.com/license/ -->
-    <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/personal-free-resume-bootstrap-template/ -->
-    Template by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-  </div>
+    <!-- Service Details Modal -->
+    <div class="modal fade" id="serviceModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-bottom border-secondary border-opacity-25">
+                    <h5 class="modal-title fw-bold text-accent" id="modalServiceTitle">Service Scope</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-readable" id="modalServiceBody">Loading package breakdown...</p>
+                    <ul class="list-unstyled text-light small" id="modalServiceList">
+                        <!-- Dynamic list items -->
+                    </ul>
+                </div>
+                <div class="modal-footer border-top border-secondary border-opacity-25">
+                    <button type="button" class="btn btn-accent btn-sm w-100" data-bs-dismiss="modal" onclick="scrollToSection('contact')">Inquire About Package</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+    <!-- CV Viewer Modal -->
+    <div class="modal fade" id="cvModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header border-bottom border-secondary border-opacity-25">
+                    <h5 class="modal-title fw-bold text-white"><i class="fa-solid fa-file-pdf text-accent me-2"></i>Curriculum Vitae — Dexter Paroni</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4 bg-dark">
+                    <div class="border border-secondary border-opacity-25 p-4 rounded bg-black">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <h3 class="fw-bold text-accent mb-0">DEXTER PARONI</h3>
+                                <div class="text-readable small">Digital Marketer & Web Specialist</div>
+                            </div>
+                            <span class="badge bg-secondary">PDF PREVIEW</span>
+                        </div>
+                        <hr class="border-secondary">
+                        <h6 class="text-white fw-bold">// SUMMARY</h6>
+                        <p class="small text-readable">Intermediate Digital Freelancer with hands-on experience building conversion funnels, managing social media channels, editing short-form video content, and engineering clean Bootstrap sites.</p>
+                        
+                        <h6 class="text-white fw-bold mt-3">// CORE SKILLS</h6>
+                        <p class="small text-readable">Social Media Management (IG/FB/TikTok), Sales Funnel Design, Bootstrap 5, HTML5/CSS3/JavaScript, Meta Ads Manager, Lead Generation Forms.</p>
+                        
+                        <h6 class="text-white fw-bold mt-3">// FREELANCE EXPERIENCE</h6>
+                        <div class="small text-light">
+                            <strong>Digital Marketing Freelancer</strong> (2022 - Present)<br>
+                            <span class="text-readable">- Built 20+ responsive landing pages and local business lead funnels.</span><br>
+                            <span class="text-readable">- Managed organic and paid social campaigns for SMBs, achieving steady lead growth.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer border-top border-secondary border-opacity-25">
+                    <button type="button" class="btn btn-accent btn-sm" onclick="triggerActualDownload()">
+                        <i class="fa-solid fa-download me-1"></i> Confirm Download
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <!-- Toast Notification Container -->
+    <div class="toast-container">
+        <div id="actionToast" class="toast custom-toast p-3 align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="d-flex">
+                <div class="toast-body text-light" id="toastMessage">
+                    Action executed successfully!
+                </div>
+                <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+            </div>
+        </div>
+    </div>
 
+    <!-- Bootstrap 5 JavaScript Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Custom Page Script -->
+    <script>
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Typing effect
+        const phrases = [
+            "Social Media Management",
+            "Sales Funnels & Lead Pages",
+            "Bootstrap Web Development",
+            "Local Meta Ads Campaigns"
+        ];
+        let pIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typingElement = document.getElementById('typing-text');
+
+        function typeEffect() {
+            const currentPhrase = phrases[pIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typingElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 30 : 70;
+
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 1800;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                pIndex = (pIndex + 1) % phrases.length;
+                typeSpeed = 400;
+            }
+
+            setTimeout(typeEffect, typeSpeed);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            typeEffect();
+            calculateROI();
+        });
+
+        // Category Filter
+        function filterProjects(category, btn) {
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const cards = document.querySelectorAll('.project-card');
+            cards.forEach(card => {
+                if (category === 'all' || card.getAttribute('data-category') === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Calculator Logic
+        function calculateROI() {
+            const traffic = parseInt(document.getElementById('trafficSlider').value);
+            const orderVal = parseFloat(document.getElementById('orderVal').value) || 0;
+            const convRate = parseFloat(document.getElementById('convRate').value);
+
+            document.getElementById('traffic-val').textContent = traffic.toLocaleString();
+
+            const totalOrders = Math.round(traffic * convRate);
+            const totalRevenue = Math.round(totalOrders * orderVal);
+
+            document.getElementById('calc-orders').textContent = `${totalOrders.toLocaleString()} Leads`;
+            document.getElementById('calc-revenue').textContent = `$${totalRevenue.toLocaleString()}`;
+        }
+
+        function applyCalculatedStrategy() {
+            scrollToSection('contact');
+            showToast("Strategy metric noted! Send Dexter a message to build your lead funnel.");
+        }
+
+        function scrollToSection(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        function handleCVDownload() {
+            const cvModal = new bootstrap.Modal(document.getElementById('cvModal'));
+            cvModal.show();
+        }
+
+        function triggerActualDownload() {
+            const modalEl = document.getElementById('cvModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if(modal) modal.hide();
+
+            showToast("Dexter's CV download started!");
+        }
+
+        function copyContactSnippet() {
+            const email = "dexterparoni@gmail.com";
+            
+            const tempInput = document.createElement("input");
+            tempInput.value = email;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand("copy");
+            document.body.removeChild(tempInput);
+
+            showToast("Copied email (dexterparoni@gmail.com) to clipboard!");
+        }
+
+        function openProjectModal(title, desc, metric, img) {
+            document.getElementById('modalProjectTitle').textContent = title;
+            document.getElementById('modalProjectDesc').textContent = desc;
+            document.getElementById('modalProjectMetric').textContent = metric;
+            document.getElementById('modalProjectImg').src = img;
+
+            const modal = new bootstrap.Modal(document.getElementById('projectModal'));
+            modal.show();
+        }
+
+        function openServiceModal(serviceName) {
+            document.getElementById('modalServiceTitle').textContent = serviceName;
+            const bodyEl = document.getElementById('modalServiceBody');
+            const listEl = document.getElementById('modalServiceList');
+            listEl.innerHTML = '';
+
+            let details = [];
+            if(serviceName.includes('Social Media')) {
+                bodyEl.textContent = "Steady social media management to keep your business channels active and engaging.";
+                details = [
+                    "• 8 to 12 Posts & Short Video Reels per month",
+                    "• Captions, hashtags, and scheduling",
+                    "• Monthly reach & engagement updates"
+                ];
+            } else if(serviceName.includes('Sales Funnels')) {
+                bodyEl.textContent = "Lead generation pages designed to collect inquiries and direct visitors to convert.";
+                details = [
+                    "• Clean 2-step opt-in or quote request page",
+                    "• Email notifications & lead form connection",
+                    "• Mobile-first design optimization"
+                ];
+            } else if(serviceName.includes('Web Development')) {
+                bodyEl.textContent = "Responsive websites and landing pages engineered using Bootstrap 5 and standard HTML/CSS/JS.";
+                details = [
+                    "• Mobile responsive & fast loading speed",
+                    "• Contact form integration",
+                    "• Clear layout structured for your service"
+                ];
+            } else {
+                bodyEl.textContent = "Local targeted ad campaigns aimed at getting your service in front of nearby customers.";
+                details = [
+                    "• Campaign setup on Meta Ads Manager",
+                    "• Target audience selection & geo-targeting",
+                    "• Ad copy & visual creative setup"
+                ];
+            }
+
+            details.forEach(item => {
+                const li = document.createElement('li');
+                li.className = 'mb-2';
+                li.textContent = item;
+                listEl.appendChild(li);
+            });
+
+            const modal = new bootstrap.Modal(document.getElementById('serviceModal'));
+            modal.show();
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            const name = document.getElementById('formName').value;
+            showToast(`Thank you ${name}! Your inquiry has been sent to Dexter. You will receive a response shortly.`);
+            document.getElementById('contactForm').reset();
+        }
+
+        function showToast(message) {
+            document.getElementById('toastMessage').textContent = message;
+            const toastEl = document.getElementById('actionToast');
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+        }
+    </script>
 </body>
-
 </html>
